@@ -1,0 +1,149 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 1rem;
+  background-color: black;
+  color: #33ff33;
+  font-family: "Courier New", monospace;
+  position: relative;
+  overflow: hidden;
+
+  animation: flicker1 2.5s infinite, flicker2 3.7s infinite, flicker3 5.1s infinite;
+}
+
+section {
+  width: 80%;
+  margin: 2rem 0;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.top-nav a {
+  color: #33ff33;
+  text-decoration: none;
+  border: 1px solid #33ff33;
+  padding: 0.5rem 1rem;
+  font-family: "Courier New", monospace;
+}
+
+.top-nav a:hover {
+  background: #33ff33;
+  color: black;
+}
+
+footer {
+  margin-top: 3rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+@keyframes flicker1 {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.8; }
+  50% { opacity: 0.6; }
+}
+@keyframes flicker2 {
+  0%, 100% { opacity: 1; }
+  20% { opacity: 0.7; }
+  25% { opacity: 0.85; }
+  70% { opacity: 0.75; }
+}
+@keyframes flicker3 {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.9; }
+  55% { opacity: 0.65; }
+  60% { opacity: 0.8; }
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 85%,
+    rgba(0,0,0,0.8) 100%
+  );
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+.listing-section {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+}
+
+.listing-column {
+  flex: 1;
+  min-width: 200px;
+  padding: 0 1rem;
+}
+
+.listing-column h3 {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.listing-column.left h3 {
+  padding-left: 10rem;
+}
+
+.listing-column.center h3 {
+  text-align: center;
+}
+
+.listing-column.right h3 {
+  text-align: right;
+  padding-right: 8rem; 
+}
+
+.listing-column ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.listing-column li {
+  margin-left: 0;
+  padding-left: 0;
+  text-indent: 0;
+  line-height: 1.4;
+}
+
+.listing-column li::marker {
+  color: #33ff33;
+}
+
+.journal-entry {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.journal-entry h3 {
+  margin-bottom: 0.5rem;
+  color: #33ff33;
+}
+
+.journal-entry p {
+  margin: 0;
+}
