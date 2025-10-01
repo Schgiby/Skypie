@@ -1,5 +1,5 @@
 body {
-  display: block;
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -9,12 +9,9 @@ body {
   color: #33ff33;
   font-family: "Courier New", monospace;
   position: relative;
+  overflow: hidden;
 
   animation: flicker1 2.5s infinite, flicker2 3.7s infinite, flicker3 5.1s infinite;
-}
-
-header, section, footer {
-  text-align: center;
 }
 
 section {
@@ -68,11 +65,11 @@ footer {
 
 body::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: -100%;
   left: 0;
   width: 100%;
-  height: 200%;
+  height: 100%;
   background: linear-gradient(
     to bottom,
     transparent 85%,
@@ -152,18 +149,8 @@ body::after {
 }
 
 .photo {
-  width: 33%;
-  max-width: 400px;
+  max-width: 80%;
   height: auto;
-  margin: 1rem auto;
-  display: block;
+  margin: 1rem 0;
   border: 2px solid #33ff33;
-}
-
-figcaption {
-  font-size: 0.9rem;
-  color: #33ff33;
-  text-align: center;
-  margin-top: 0.5rem;
-  font-style: italic;
 }
